@@ -1,17 +1,15 @@
-nome = input("Escreva seu Nome!")
-try:
-    idade =int (input("Escreva sua Idade!") )
-except ValueError:
-    print("vocẽ não digitou um número")
-print(f"Olá, {nome},vocẽ tem {idade} anos")    
-
-try:
-    n1 = float(input("digite um número"))
-    n2 = float(input("digite mais um número"))
-except ValueError:
-    print("Tente novamente")
-    
-soma = n1 + n2
-
-print (f"O número {n1} mais o número {n2} é igual a: {soma}.")
-# -*- coding: utf-8 -*-
+# Solicite a idade a d o usúario 
+nota = int(input("Digite sua nota:"))
+#categorize a idade 
+if  nota > 90:
+    categoria = "Nota A"
+elif nota > 80:
+    categoria = "Nota B"
+elif nota > 70:
+    categoria = "Nota C"
+elif nota > 60:
+    categoria = "Nota D"
+else:
+    categoria = "Nota F"
+    #Exibe a categoria
+print(f"Você está na categoria: {categoria}.")
