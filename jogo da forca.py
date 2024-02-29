@@ -1,21 +1,22 @@
-palavra_secreta = "badin"
-letras_acertadas = ["_","_","_","_","_"]
-tentativas = 0;
+secreta = "viado"
+letrasAcertadas = ["_", "_", "_", "_", "_"]
+tentativas = 7
 
-while tentativas > 0 and "_" in letras_acertadas:
-    palpite = input("Digite uma letra, meu querido.).lower();
-    if palpite in palavra_secreta:
-        index = 0;
-        for letra in palavra_secreta:
+while tentativas > 0 and "_" in letrasAcertadas:
+    palpite = input("Escreva uma letra:").lower()
+
+    if palpite in secreta:
+        index = 0
+        for letra in secreta:
             if palpite == letra:
-                letras_acertadas [index] = letra;
-            index += 1 
+                letrasAcertadas [index] = letra
+            index += 1
     else:
-        tentativas -= 1;
-        print(f"voce tem {tentivas} restantes.")
-    print("".join(letras_acertadas))
-    
-if "_" not in letras_acertadas:
-    print("MEUS PAREBENS, VOCE GANHOU")
+        tentativas -= 1
+        print(f"Você errou, ainda tem {tentativas} Restantes.")
+    print(f"Você acertou uma das letras.{letrasAcertadas}")
+
+if "_" not in letrasAcertadas:
+    print(f"Parabéns, você ganhou Nada <3")
 else:
-    print(f"KKKKKKK VOCE PERDEU, a palvra era {palavra_secreta}");
+    print(f"Que pena, você perdeu. a palavra era {secreta}")
