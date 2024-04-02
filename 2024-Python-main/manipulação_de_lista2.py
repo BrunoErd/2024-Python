@@ -17,7 +17,7 @@ def excluir_item(lista):
         print("Item '{}' removido com sucesso!".format(item))
     except ValueError:
         print("O item '{}' não está na lista.".format(item))
-    mostrar_lista(lista)
+    mostrar_lista(lista)  
 
 def gravar_lista(lista):
     try:
@@ -28,24 +28,34 @@ def gravar_lista(lista):
     except IOError:
         print("Erro ao gravar a lista no arquivo.")
 
-def ler_lista():
+def carregar_arquivo(nome_arquivo):
     try:
-        with open("lista.txt", "r") as file:
-            lista = [line.strip() for line in file]
-        return lista
+        with open(nome_arquivo, "r") as file:
+            conteudo = file.read()
+        print(f"Arquivo '{nome_arquivo}' carregado com sucesso!")
+        return conteudo
     except FileNotFoundError:
-        print("Arquivo 'lista.txt' não encontrado. Criando uma nova lista.")
-        return []
+        print(f"Arquivo '{nome_arquivo}' não encontrado.")
+        return None
+    except IOError:
+        print(f"Erro ao carregar o arquivo '{nome_arquivo}'.")
+        return None
+
+def ordenar_lista(lista):
+    lista.sort()
+    print("Lista ordenada com sucesso!")
+    mostrar_lista(lista)
 
 def main():
-    lista = ler_lista()
+    lista = carregar_arquivo
     while True:
         print("\nEscolha uma opção:")
         print("1. Inserir um novo item na lista")
         print("2. Excluir um item da lista")
         print("3. Mostrar a lista atual")
         print("4. Gravar a lista em um arquivo")
-        print("5. Sair do programa")
+        print("5. Ordenar a lista")
+        print("6. Sair do programa")
 
         escolha = input("Digite o número da opção: ")
 
@@ -58,6 +68,8 @@ def main():
         elif escolha == "4":
             gravar_lista(lista)
         elif escolha == "5":
+            ordenar_lista(lista)
+        elif escolha == "6":
             print("Encerrando o programa.")
             break
         else:
